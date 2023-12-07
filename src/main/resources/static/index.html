@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>초기화면</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        form {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #0074b8;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005489;
+        }
+    </style>
+</head>
+<body>
+<h3>공주대 지식인페이지</h3>
+<form th:action="@{/loginPage}" method="get">
+    <button type="submit">로그인 하러가기</button>
+</form>
+<form action="/board/list" method="get">
+    <button type="submit">게시글 보러가기</button>
+</form>
+</body>
+</html>
