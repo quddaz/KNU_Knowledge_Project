@@ -72,7 +72,7 @@ public class BoardController {
         Long rewardToken = boardDTO.getRewardToken();
 
         // 사용자가 게시글을 쓸만큼의 토큰이 있는지 확인
-        if (memberService.chackWithUsingTokenAndRewardToken(MemberDTO.toMemberDTO(findMember),rewardToken)) {
+        if (memberService.checkWithUsingTokenAndRewardToken(MemberDTO.toMemberDTO(findMember),rewardToken)) {
             model.addAttribute("message", "보유하신 내공이 부족해 글을 작성할 수 없습니다.");
             model.addAttribute("searchUrl", "/addBoard");
             return "message";

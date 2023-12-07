@@ -49,7 +49,7 @@ public class AnswerController {
         String memberId = authentication.getName();
 
         //같은 게시글안의 문답글중 memberId와 같은 id를 가진 회원이 없어야 한다.
-        if (answerService.chackHasWrittenAnswer(board, memberId)) {
+        if (answerService.checkHasWrittenAnswer(board, memberId)) {
             model.addAttribute("message", "이미 작성하신 답글이 존재합니다.");
             model.addAttribute("searchUrl", "/board/view?id=" + id);
             return "message";

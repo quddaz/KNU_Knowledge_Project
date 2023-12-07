@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 
@@ -25,13 +26,31 @@ public class BoardService {
         this.boardRepository = boardRepository;
     }
 
-    //글 작성
+    /*
+     * DB에 게시글 객체를 저장하는 메소드
+     *
+     * @param BoardDTO 게시글 DTO
+     * @return board
+     * @throws IllegalArgumentException 만약 게시글이 null이면 예외를 던집니다.
+     */
     public Board write(BoardDTO boardDTO) {
+        if (boardDTO == null) {
+            throw new IllegalArgumentException("write : 게시글DTO가 null입니다.");
+        }
         Board board = Board.toBoard(boardDTO);
         boardRepository.save(board);
         return board;
     }
-    //검색 기능 사용 중인지 체크
+
+    /*
+     * 검색 기능을 사용 중인지 체크하는 메소드
+     *
+     * @param type : 검색 타입
+     * @param keyword : 검색 키워드
+     * @param Pageable : 페이지 관련 파라미터
+     * @return 필더링된 게시글
+     * @throws type, keyword 둘 중 하나라도 비어있으면 전체 게시판 리스트를 출력합니다.
+     */
     public Page<Board> viewBoardList(String type, String keyword, Pageable pageable) {
         if (type != null && keyword != null && !type.isEmpty() && !keyword.isEmpty()) {
             // 검색이 있는 경우
@@ -42,12 +61,26 @@ public class BoardService {
         }
     }
 
-    //전체  글리스트 가져오기
+    /*
+     * 전체 게시글을 가져오는 메소드
+     *
+     * @param Pageable : 페이지 관련 파라미터
+     * @return 모든 게시글
+     * @throws
+     */
     public Page<Board> allBoardList(Pageable pageable) {
         return boardRepository.findAll(pageable);
     }
 
-    //검색 리스트 가져오기
+    /*
+     * 게시글을 검색으로 필터링해서 가져오는 메소드
+     *
+     * @param type : 검색 타입
+     * @param keyword : 검색 키워드
+     * @param Pageable : 페이지 관련 파라미터
+     * @return 키워드에 따른 검색 글
+     * @throws
+     */
     public Page<Board> searchBoardList(String type, String keyword, Pageable pageable) {
 
         if ("title".equals(type)) {
@@ -60,21 +93,45 @@ public class BoardService {
         }
     }
 
-    //특정 게시글 불러오기
+    /*
+     * 특정 게시글을 가져오는 메소드
+     *
+     * @param id 게시글의 기본키.
+     * @return Board 객체의 DTO
+     * @throws  IllegalArgumentException 만약 ID가 NULL일 경우 예외를 던집니다.
+     */
     public BoardDTO boardView(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("boardView : id가 null입니다.");
+        }
         Board board = boardRepository.findById(id).get();
-        System.out.println(board.getContent());
+
         BoardDTO boardDTO = BoardDTO.toBoardDTO(board);
         return boardDTO;
     }
 
-    //게시글 지우기
+    /*
+     * 게시글 삭제 메소드
+     *
+     * @param id 게시글의 기본키
+     * @return
+     * @throws IllegalArgumentException 만약 ID가 NULL일 경우 예외를 던집니다.
+     */
     public void boardDelete(Long id) {
         boardRepository.deleteById(id);
     }
 
-    //조회수 추가
+    /*
+     * 게시글 조회수 초기화 메소드
+     *
+     * @param id 게시글의 기본키
+     * @return
+     * @throws IllegalArgumentException 만약 ID가 NULL일 경우 예외를 던집니다.
+     */
     public void addView(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("addView : id가 null입니다.");
+        }
         Board board = boardRepository.findById(id).get();
         Long view = board.getView();
         view+=1;
@@ -82,20 +139,30 @@ public class BoardService {
         boardRepository.save(board);
     }
 
+    /*
+     * 특정 게시글을 기본키로 찾는 메소드
+     *
+     * @param id 게시글의 기본키
+     * @return Board 객체
+     * @throws
+     */
     public Board findById(Long id) {
         return boardRepository.findById(id).get();
     }
 
-    public Page<Board> isMyBoard(Page<Board> list,String memberId) {
-        // list의 getContent()로부터 가져온 List<Board>에서 조건에 맞는 항목을 필터링하여 새로운 리스트 생성
-        List<Board> filteredList = list.getContent().stream()
-                .filter(board -> board.getMember() == null || board.getMember().getId().equals(memberId))
-                .collect(Collectors.toList());
+    /*
+     * 특정 회원이 작성한 게시글만 필터링하여 새로운 Page 객체를 생성하는 메소드입니다.
+     *
+     * @param page      원본 Page 객체
+     * @param memberId  게시글 작성 회원의 ID
+     * @return 특정 회원이 작성한 게시글만 필터링한 새로운 Page 객체
+     */
+    public Page<Board> isMyBoard(Page<Board> page, String memberId) {
+        List<Board> filteredList = page.getContent().stream()
+            .filter(board -> Objects.equals(board.getMember().getId(), memberId))
+            .collect(Collectors.toList());
 
-        // 필터링된 리스트로 새로운 Page 객체 생성
-        Page<Board> updatedPage = new PageImpl<>(filteredList, list.getPageable(), list.getTotalElements());
-
-        return updatedPage;
+        return new PageImpl<>(filteredList, page.getPageable(), page.getTotalElements());
     }
 
 
