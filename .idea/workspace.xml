@@ -5,31 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad3dc6d5-7961-4771-88e4-a82951b0c96e" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.3/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.3/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/controller/AnswerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/controller/BoardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/service/AnswerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/service/AnswerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/service/AttachmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/service/AttachmentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/service/BoardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/service/BoardService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/service/GptAnswerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/service/GptAnswerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/service/MemberService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/service/QuestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/BoardProject/demo/service/QuestService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/controller/AnswerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/AnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/AnswerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/AttachmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/AttachmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/BoardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/GptAnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/GptAnswerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/QuestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/QuestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,23 +34,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -98,6 +77,8 @@
       <workItem from="1701835567510" duration="5225000" />
       <workItem from="1701849529666" duration="137000" />
       <workItem from="1701954298444" duration="2959000" />
+      <workItem from="1701958666926" duration="405000" />
+      <workItem from="1702002738645" duration="82000" />
     </task>
     <servers />
   </component>
