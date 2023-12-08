@@ -26,10 +26,10 @@ public class BoardService {
         this.boardRepository = boardRepository;
     }
 
-    /*
+    /**
      * DB에 게시글 객체를 저장하는 메소드
      *
-     * @param BoardDTO 게시글 DTO
+     * @param boardDTO 게시글 DTO
      * @return board
      * @throws IllegalArgumentException 만약 게시글이 null이면 예외를 던집니다.
      */
@@ -42,14 +42,13 @@ public class BoardService {
         return board;
     }
 
-    /*
+    /**
      * 검색 기능을 사용 중인지 체크하는 메소드
      *
      * @param type : 검색 타입
      * @param keyword : 검색 키워드
-     * @param Pageable : 페이지 관련 파라미터
+     * @param pageable : 페이지 관련 파라미터
      * @return 필더링된 게시글
-     * @throws type, keyword 둘 중 하나라도 비어있으면 전체 게시판 리스트를 출력합니다.
      */
     public Page<Board> viewBoardList(String type, String keyword, Pageable pageable) {
         if (type != null && keyword != null && !type.isEmpty() && !keyword.isEmpty()) {
@@ -61,10 +60,10 @@ public class BoardService {
         }
     }
 
-    /*
+    /**
      * 전체 게시글을 가져오는 메소드
      *
-     * @param Pageable : 페이지 관련 파라미터
+     * @param pageable : 페이지 관련 파라미터
      * @return 모든 게시글
      * @throws
      */
@@ -72,14 +71,13 @@ public class BoardService {
         return boardRepository.findAll(pageable);
     }
 
-    /*
+    /**
      * 게시글을 검색으로 필터링해서 가져오는 메소드
      *
      * @param type : 검색 타입
      * @param keyword : 검색 키워드
-     * @param Pageable : 페이지 관련 파라미터
+     * @param pageable : 페이지 관련 파라미터
      * @return 키워드에 따른 검색 글
-     * @throws
      */
     public Page<Board> searchBoardList(String type, String keyword, Pageable pageable) {
 
@@ -93,7 +91,7 @@ public class BoardService {
         }
     }
 
-    /*
+    /**
      * 특정 게시글을 가져오는 메소드
      *
      * @param id 게시글의 기본키.
@@ -110,7 +108,7 @@ public class BoardService {
         return boardDTO;
     }
 
-    /*
+    /**
      * 게시글 삭제 메소드
      *
      * @param id 게시글의 기본키
@@ -121,7 +119,7 @@ public class BoardService {
         boardRepository.deleteById(id);
     }
 
-    /*
+    /**
      * 게시글 조회수 초기화 메소드
      *
      * @param id 게시글의 기본키
@@ -139,7 +137,7 @@ public class BoardService {
         boardRepository.save(board);
     }
 
-    /*
+    /**
      * 특정 게시글을 기본키로 찾는 메소드
      *
      * @param id 게시글의 기본키
@@ -150,7 +148,7 @@ public class BoardService {
         return boardRepository.findById(id).get();
     }
 
-    /*
+    /**
      * 특정 회원이 작성한 게시글만 필터링하여 새로운 Page 객체를 생성하는 메소드입니다.
      *
      * @param page      원본 Page 객체

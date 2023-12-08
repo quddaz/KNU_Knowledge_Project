@@ -23,7 +23,7 @@ public class QuestService {
     this.memberRepository = memberRepository;
   }
 
-  /*
+  /**
    * 주어진 회원 ID에 해당하는 퀘스트를 찾아 반환합니다. 만약 해당 날짜의 퀘스트가 없다면 새로운 퀘스트를 생성합니다.
    *
    * @param memberId 조회할 회원의 ID
@@ -35,7 +35,7 @@ public class QuestService {
   }
 
 
-  /*
+  /**
    * 주어진 회원 ID에 해당하는 회원의 입양 퀘스트를 확인하고 클리어 여부를 체크합니다.
    * 클리어되지 않은 경우 클리어 처리를 하고 true를 반환하며, 이미 클리어된 경우 false를 반환합니다.
    *
@@ -53,7 +53,7 @@ public class QuestService {
     return true;
   }
 
-  /*
+  /**
    * 주어진 회원 ID에 해당하는 회원의 게시글 작성 퀘스트를 확인하고 클리어 여부를 체크합니다.
    * 클리어되지 않은 경우 클리어 처리를 하고 true를 반환하며, 이미 클리어된 경우 false를 반환합니다.
    *
@@ -71,7 +71,7 @@ public class QuestService {
 
     return true;
   }
-  /*
+  /**
    * 주어진 회원 ID에 해당하는 회원의 답변 작성 퀘스트를 확인하고 클리어 여부를 체크합니다.
    * 클리어되지 않은 경우 클리어 처리를 하고 true를 반환하며, 이미 클리어된 경우 false를 반환합니다.
    *
@@ -90,7 +90,7 @@ public class QuestService {
     return true;
   }
 
-  /*
+  /**
    * 주어진 회원 ID에 해당하는 퀘스트를 생성하고 저장합니다.
    * 만약 주어진 ID에 해당하는 회원이 존재하지 않으면 RuntimeException을 던집니다.
    *

@@ -21,7 +21,7 @@ public class AnswerService {
         this.answerRepository = answerRepository;
     }
 
-    /*
+    /**
     *Board 객체를 받아 Answer들을 반환하는 메소드
     *
     *@Param Board 게시글 객체
@@ -31,7 +31,7 @@ public class AnswerService {
         return answerRepository.findByBoard(board);
     }
 
-    /*
+    /**
      *AnswerDTO를 받아 Answer 정보를 수정하는 메소드
      *
      *@Param AnswerDTO 답글의 DTO
@@ -42,7 +42,7 @@ public class AnswerService {
         answerRepository.save(answer);
     }
 
-    /*
+    /**
      * Board의 답변 글을 생성할 때 초기화할 답변글 번호를 반환하는 메소드
      *
      * @param board 게시글 객체
@@ -63,7 +63,7 @@ public class AnswerService {
     }
 
 
-    /*
+    /**
      * 특정 게시글에 대한 답변 목록을 반환하는 메소드
      *
      * @param answerDTO 답변 조회에 필요한 정보를 담은 DTO (Data Transfer Object)
@@ -86,7 +86,7 @@ public class AnswerService {
         }
     }
 
-    /*
+    /**
      * 특정 문답글을 삭제하는 메소드
      *
      * @param answerDTO 답변 조회에 필요한 정보를 담은 DTO (Data Transfer Object)
@@ -96,7 +96,7 @@ public class AnswerService {
         answerRepository.deleteById(answerDTO.getId());
     }
 
-    /*
+    /**
      * 특정 답변 ID에 해당하는 답변을 반환하는 메소드
      *
      * @param id 조회하고자 하는 답변의 ID
@@ -121,7 +121,7 @@ public class AnswerService {
         }
     }
 
-    /*
+    /**
      * 채택한 답변을 업데이트하는 메소드
      *
      * @param answerDTO 답변 조회에 필요한 정보를 담은 DTO (Data Transfer Object)
@@ -136,7 +136,7 @@ public class AnswerService {
         write(answerDTO);
     }
 
-    /*
+    /**
      * 특정 게시글에 대해 특정 회원이 답변을 작성했는지 여부를 확인하는 메소드
      *
      * @param board 게시글 객체

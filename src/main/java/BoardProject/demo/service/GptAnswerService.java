@@ -27,7 +27,7 @@ public class GptAnswerService {
     private static final String ENDPOINT = "https://api.openai.com/v1/chat/completions";
     private static final String MODEL = "gpt-3.5-turbo";
 
-    /*
+    /**
      * 주어진 프롬프트와 온도, 토큰 제한을 이용하여 OpenAI GPT 모델에 메시지를 전송하고, 응답을 반환하는 메소드입니다.
      *
      * @param prompt     사용자에게 보여질 프롬프트 메시지
@@ -83,7 +83,7 @@ public class GptAnswerService {
     }
 
 
-    /*
+    /**
      * ChatGPT 답변을 생성합니다.
      *
      * @param gptAnswer ChatGPT 답변 엔터티
@@ -92,7 +92,7 @@ public class GptAnswerService {
         gptAnswerRepository.save(gptAnswer);
     }
 
-    /*
+    /**
      * ChatGPT에게 특정 프롬프트에 대한 응답을 요청하고, 응답을 반환합니다.
      *
      * @param prompt ChatGPT에 전달할 프롬프트 메시지
@@ -104,7 +104,7 @@ public class GptAnswerService {
         return sendMessage(prompt, 1.0f, 1000);
     }
 
-    /*
+    /**
      * 특정 게시글에 대한 ChatGPT 답변을 조회합니다.
      *
      * @param id 조회할 게시글의 ID
@@ -115,7 +115,7 @@ public class GptAnswerService {
         return gptAnswerOptional.orElse(null);
     }
 
-    /*
+    /**
      * 주어진 ChatGPT 답변을 업데이트합니다.
      *
      * @param gptAnswer 업데이트할 ChatGPT 답변 엔터티

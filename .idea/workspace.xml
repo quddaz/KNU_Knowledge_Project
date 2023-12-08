@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad3dc6d5-7961-4771-88e4-a82951b0c96e" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/AnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/AnswerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/AttachmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/AttachmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/GptAnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/GptAnswerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/QuestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardProject/demo/service/QuestService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +81,7 @@
       <workItem from="1701954298444" duration="2959000" />
       <workItem from="1701958666926" duration="405000" />
       <workItem from="1702002738645" duration="82000" />
+      <workItem from="1702029180941" duration="226000" />
     </task>
     <servers />
   </component>

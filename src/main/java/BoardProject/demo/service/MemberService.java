@@ -32,7 +32,7 @@ public class MemberService {
         return memberRepository.findById(id).get();
     }
 
-    /*
+    /**
      * 맴버 랭킹에서 상위 10명의 회원 정보를 가져와 MemberRankingDTO로 변환하여 반환합니다.
      *
      * @return 상위 10명의 회원 랭킹 정보 목록
@@ -44,7 +44,7 @@ public class MemberService {
             .collect(Collectors.toList());
     }
 
-    /*
+    /**
      * 주어진 MemberDTO를 사용하여 회원을 등록합니다.
      *
      * @param memberDTO 등록할 회원 정보를 담은 DTO
@@ -56,7 +56,7 @@ public class MemberService {
         memberRepository.save(member);
     }
 
-    /*
+    /**
      * 주어진 MemberDTO를 사용하여 회원의 토큰을 업데이트합니다.
      *
      * @param memberDTO 토큰을 업데이트할 회원 정보를 담은 DTO
@@ -66,7 +66,7 @@ public class MemberService {
         memberRepository.save(member);
     }
 
-    /*
+    /**
      * 주어진 회원 정보가 중복되지 않는지 확인합니다.
      *
      * @param member 회원 엔터티
@@ -76,7 +76,7 @@ public class MemberService {
         return !memberRepository.findById(member.getId()).isPresent();
     }
 
-    /*
+    /**
      * 주어진 회원 정보를 사용하여 게시글로 인한 토큰 업데이트를 수행합니다.
      *
      * @param memberDTO   토큰을 업데이트할 회원 정보를 담은 DTO
@@ -92,7 +92,7 @@ public class MemberService {
         }
     }
 
-    /*
+    /**
      * 주어진 회원 ID와 퀘스트 보상을 사용하여 퀘스트로 인한 토큰 업데이트를 수행합니다.
      *
      * @param memberId     업데이트할 회원의 ID
@@ -109,7 +109,7 @@ public class MemberService {
         }
     }
 
-    /*
+    /**
      * 주어진 MemberDTO를 사용하여 채택으로 인한 토큰 업데이트를 수행합니다.
      *
      * @param memberDTO   토큰을 업데이트할 회원 정보를 담은 DTO
@@ -121,7 +121,7 @@ public class MemberService {
         updateToken(memberDTO);
     }
 
-    /*
+    /**
      * 주어진 MemberDTO와 토큰 보상을 사용하여 게시글 작성 시 토큰이 충분한지 확인합니다.
      *
      * @param memberDTO   토큰을 확인할 회원 정보를 담은 DTO
@@ -132,7 +132,7 @@ public class MemberService {
         return memberDTO.getUsingToken() - rewardToken < 0;
     }
 
-    /*
+    /**
      * 주어진 회원 ID가 존재하는지 확인합니다.
      *
      * @param id 확인할 회원의 ID
@@ -142,7 +142,7 @@ public class MemberService {
         return memberRepository.existsById(id);
     }
 
-    /*
+    /**
      * 주어진 회원 이름이 존재하는지 확인합니다.
      *
      * @param name 확인할 회원의 이름
