@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="080616e1-b696-4338-a3e6-5c281ad2b9c7" name="변경" comment="리팩토링 작업 및 회원탈퇴기능 추가">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/개요.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/요구사항명세서.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/BoardProject/demo/controller/MyPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/BoardProject/demo/controller/MyPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/memberInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/memberInfo.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,23 +49,31 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2YcgZoeLWTIgTFiw7MiXkQ7el4m" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/Desktop/SpringBootProject-master/SpringBootProject-master/src/main/resources/templates&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/김병웅/Desktop/SpringBootProject-master/SpringBootProject-master",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\김병웅\Desktop\SpringBootProject-master\SpringBootProject-master" />
+      <recent name="C:\Users\김병웅\Desktop\SpringBootProject-master\SpringBootProject-master\src\main\resources" />
       <recent name="C:\Users\pc\Desktop\SpringBootProject-master\SpringBootProject-master\src\main\resources\templates" />
       <recent name="C:\Users\pc\Desktop\SpringBootProject-master\SpringBootProject-master\src\main" />
     </key>
@@ -88,7 +98,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.DemoApplication" />
+        <item itemvalue="Application.DemoApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -100,6 +110,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700830339689</updated>
+      <workItem from="1702285191858" duration="46000" />
+      <workItem from="1702285275386" duration="279000" />
     </task>
     <task id="LOCAL-00001" summary="검색 추가">
       <created>1700831156994</created>
@@ -208,6 +220,9 @@
     </task>
     <option name="localTasksCounter" value="16" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
