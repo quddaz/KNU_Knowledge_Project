@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>답변글 작성</title>
+</head>
+<style>
+    .layout {
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    .layout input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .layout textarea {
+        width: 100%;
+        margin-top: 10px;
+        min-height: 300px;
+    }
+</style>
+<body>
+<div class="layout">
+    <button type="button" onclick="startSpeechRecognition()">음성녹음시작</button>
+    <button type="button" onclick="endSpeechRecognition()">음성녹음종료</button>
+    <form action="/addBoard" method="post">
+        <input type="hidden" name="board" th:value="${board}">
+        내용
+        <textarea name="content" id="content"></textarea>
+        <button type="submit">작성</button>
+    </form>
+</div>
+<script>
+    let recognition; // recognition 객체를 전역 변수로 선언
+
+    function checkCompatibility() {
+        recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = "ko-KR";
+        recognition.maxAlternatives = 5;
+        if (!recognition) alert("You can't use SpeechAPI.");
+    }
+
+    function startSpeechRecognition() {
+        console.log("start");
+
+        recognition.addEventListener("start", () => {
+            console.log("speech start");
+        });
+
+        recognition.addEventListener("end", () => {
+            console.log("speechEnd");
+        });
+
+        recognition.addEventListener("result", (event) => {
+            console.log("speechResult", event.results);
+            const text = event.results[0][0].transcript;
+            document.getElementById("content").value = text;
+        });
+
+        recognition.start();
+    }
+
+    function endSpeechRecognition() {
+        recognition.stop();
+    }
+
+    window.addEventListener("load", checkCompatibility);
+</script>
+</body>
+</html>

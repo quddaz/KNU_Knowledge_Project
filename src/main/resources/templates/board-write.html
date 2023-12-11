@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시물 작성페이지</title>
+</head>
+<style>
+    .layout {
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    .layout input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .layout textarea {
+        width: 100%;
+        margin-top: 10px;
+        min-height: 300px;
+    }
+</style>
+<body>
+<div class="layout">
+    <h1>현재 로그인한 사용자: <span th:text="${name}"></span></h1>
+    <form action="/addBoard" method="post" enctype="multipart/form-data">
+        제목
+        <input type="text" name="title" required>
+        내용
+        <button type="button" onclick="startSpeechRecognition()">음성녹음시작</button>
+        <button type="button" onclick="endSpeechRecognition()">음성녹음종료</button>
+        <textarea name="content" id="content" required></textarea>
+        보상내공
+        <select name="rewardToken" class="rewardToken-box">
+            <option value="30">30</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+        </select>
+        <div>
+            <label for="file">첨부 파일:</label>
+            <input type="file" id="file" name="multipartFile">
+        </div>
+        <button type="submit">작성</button>
+    </form>
+</div>
+<script>
+    var recognition;
+
+    function checkCompatibility() {
+        recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = "ko-KR";
+        recognition.maxAlternatives = 5;
+        if (!recognition) alert("You can't use SpeechAPI.");
+    }
+
+    function startSpeechRecognition() {
+        console.log("start");
+
+        recognition.addEventListener("start", () => {
+            console.log("speech start");
+        });
+
+        recognition.addEventListener("end", () => {
+            console.log("speechEnd");
+        });
+
+        recognition.addEventListener("result", (event) => {
+            console.log("speechResult", event.results);
+            const text = event.results[0][0].transcript;
+            document.getElementById("content").value = text;
+        });
+
+        recognition.start();
+    }
+
+    function endSpeechRecognition() {
+        recognition.stop();
+    }
+
+    window.addEventListener("load", checkCompatibility);
+</script>
+</body>
+</html>

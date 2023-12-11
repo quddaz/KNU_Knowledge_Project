@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가운데에 영역을 표시하는 웹페이지</title>
+    <style>
+        body {
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .center-box,
+        .second-box {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            width: 600px;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+  }
+
+  a.button:hover {
+    background-color: #0056b3;
+  }
+
+    </style>
+</head>
+<body>
+<a th:href="@{/show/myBoard}" class="button">내가 작성한 글</a><br>
+<a th:href="@{/board/list}" class="button">게시글로 돌아가기</a>
+<div class="center-box">
+    <h1>사용자의 개인정보</h1>
+    <table>
+        <tr>
+            <td colspan="3">
+                아이디:
+            </td>
+            <td th:text="${memberDTO.id}" colspan="2">아이디</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                닉네임:
+            </td>
+            <td th:text="${memberDTO.name}" colspan="2">닉네임</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                전화번호:
+            </td>
+            <td th:text="${memberDTO.tel}" colspan="2">전화번호</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                사용 가능 내공:
+            </td>
+            <td th:text="${memberDTO.usingToken}">사옹 가능 내공</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                보유 내공:
+            </td>
+            <td th:text="${memberDTO.totalToken}">보유 내공</td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>

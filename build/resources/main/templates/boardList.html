@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 리스트 페이지</title>
+    <style>
+        .layout {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 버튼 스타일 */
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        /* 테이블 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        /* 링크 스타일 */
+        a {
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2; /* Light gray color on hover */
+        }
+
+        /* 페이지 번호 스타일 */
+        .page-number {
+            margin: 5px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .page-number.active {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        a.button {
+     display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+  }
+
+  a.button:hover {
+    background-color: #0056b3;
+  }
+
+    </style>
+</head>
+
+<body>
+<div class="layout">
+    <a th:href="@{/addBoard}" class="button">글 쓰기</a>
+    <a th:href="@{/view/memberInfo}" class="button">내 정보 보기</a>
+    <table>
+        <thead>
+        <tr>
+            <th>글번호</th>
+            <th>제목</th>
+            <th>조회수</th>
+            <th>보상 내공</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="boardDTO: ${list}">
+            <td th:text="${boardDTO.id}">1</td>
+            <td>
+                <a th:text="${boardDTO.title}" th:href="@{/board/view(id=${boardDTO.id})}">제목입니다.</a>
+            </td>
+            <td th:text="${boardDTO.view}">3</td>
+            <td th:text="${boardDTO.rewardToken}">50</td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/board/list(page=0)}">첫페이지</a>
+    <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
+        <a th:if="${page != nowPage}" th:href="@{/board/list(page=${page-1})}" th:text="${page}"
+           style="margin-left:5px"></a>
+        <strong th:if="${page == nowPage}" th:text="${page}" style="color:red; margin-left:5px"></strong>
+    </th:block>
+    <a th:href="@{/board/list(page=${endPage-1})}">마지막페이지</a>
+</div>
+</body>
+</html>

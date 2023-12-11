@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 리스트 페이지</title>
+    <style>
+        .layout {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* 테이블 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td, tr {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #1b1b1b;
+            color: #ddd;
+        }
+
+        /* 테이블 올렸을 때 */
+        tbody tr:hover {
+            background-color: #d3d3d3;
+            opacity: 0.9;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            justify-content: flex-end; /* 검색 폼을 우측으로 정렬합니다. */
+            margin-bottom: 10px;
+        }
+        /* 하이퍼링크 색상을 검은색으로 지정 */
+        a {
+            color: black;
+            text-decoration: none; /* 밑줄 제거 */
+        }
+
+        /* 밑줄이 필요한 상황에서만 색상 변경 */
+        a:hover {
+            color: black;
+        }
+
+        /* 페이지네이션 스타일링 */
+        .pagination {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            justify-content: center;
+        }
+
+        .pagination a, .pagination strong {
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            color: black; /* 페이지네이션 링크 색상을 검은색으로 지정 */
+        }
+
+        .pagination strong {
+            color: red;
+        }
+
+
+    </style>
+    <link rel="stylesheet" href="../css/setting.css">
+    <link rel="stylesheet" href="../css/plugin.css">
+    <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+<header class="basic-N1" data-bid="sblPHoIJl7">
+    <div class="header-inner">
+        <div class="header-container container-lg">
+            <h1 class="header-title">
+                <a th:href="@{/board/list}">
+                    <span>공주대 지식인</span>
+                </a>
+            </h1>
+            <div>
+                <a class="header-gnblink" th:href="@{/addBoard}">
+                    <span>글 쓰기</span>
+                </a>
+                <a class="header-gnblink"th:href="@{/view/memberInfo}">
+                    <span>마이페이지</span>
+                </a>
+                <a class="header-gnblink"th:href="@{/logout}">
+                    <span>로그아웃</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="header-dim"></div>
+</header>
+<div class="layout">
+    <h1 class="header-title">
+        <a>
+            <span>질문글</span>
+        </a>
+    </h1>
+    <br>
+    <!-- 검색 폼 -->
+    <form action="/board/list" method="get" id="searchForm" name="search-form">
+        <select name="type" class="type-box">
+            <option value="">검색 유형 선택</option>
+            <option value="title">제목</option>
+            <option value="writer">작성자</option>
+        </select>
+        <input class="inputId" type="text" name="keyword" placeholder="검색어 입력">
+        <input class="submitBtn" type="submit" value="검색하기">
+    </form>
+
+    <!-- 게시글 목록 표시 -->
+    <table>
+        <thead>
+        <tr>
+            <th>글번호</th>
+            <th>제목</th>
+            <th>닉네임</th>
+            <th>조회수</th>
+            <th>보상 내공</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="boardDTO: ${list.content}">
+            <td th:text="${boardDTO.id}">1</td>
+            <td>
+                <a th:text="${boardDTO.title}" th:href="@{/board/view(id=${boardDTO.id})}">이름</a>
+            </td>
+            <td th:text="${boardDTO.member.name}"></td>
+            <td th:text="${boardDTO.view}">3</td>
+            <td th:text="${boardDTO.rewardToken}">50</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- 페이지 네이션 -->
+    <ul class="pagination">
+        <li><a th:href="@{/board/list(page=0)}">첫페이지</a></li>
+        <th:block th:each="page:${#numbers.sequence(startPage, endPage)}">
+            <li th:if="${page != nowPage}">
+                <a th:href="@{/board/list(page=${page-1})}" th:text="${page}"></a>
+            </li>
+            <li th:if="${page == nowPage}" style="color:red;">
+                <strong th:text="${page}"></strong>
+            </li>
+        </th:block>
+        <li><a th:href="@{/board/list(page=${endPage-1})}">마지막페이지</a></li>
+    </ul>
+</div>
+<div class="layout">
+    <h1 class="header-title">
+        <a>
+            <span>랭킹</span>
+        </a>
+    </h1>
+    <br>
+    <table>
+        <thead>
+        <tr>
+            <th>닉네임</th>
+            <th>내공</th>
+            <th>등급</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="memberRankingDTO : ${memberRankingDTO}">
+            <td th:text="${memberRankingDTO.name}">Name</td>
+            <td th:text="${memberRankingDTO.totalToken}">Total Token</td>
+            <td th:text="${memberRankingDTO.memberGrade}">Grade</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class = "layout">
+    <h1 class="header-title">
+        <a>
+            <span>일일 퀘스트</span>
+        </a>
+    </h1>
+    <br>
+    <table>
+        <tr>
+            <th>채택 여부</th>
+            <td th:text="${quest.adoption ? '완료됨' : '미완료'}"></td>
+        </tr>
+        <tr>
+            <th>게시판 생성</th>
+            <td th:text="${quest.creatBoard ? '완료됨' : '미완료'}"></td>
+        </tr>
+        <tr>
+            <th>답변 생성</th>
+            <td th:text="${quest.creatAnswer ? '완료됨' : '미완료'}"></td>
+        </tr>
+    </table>
+</div>
+<footer class="basic-N4" data-bid="KRLPhOIjS3">
+    <div class="footer-container container-lg">
+        <div class="footer-top">
+            <h1 class="header-title">
+                <a>
+                    <span style="color: white">공주대 지식인</span>
+                </a>
+            </h1>
+        </div>
+        <ul class="footer-menulist">
+            <a></a>
+        </ul>
+        <ul class="footer-snslist">
+            <li class="footer-snsitem">
+                <a class="footer-snslink" href="https://www.youtube.com/channel/UCjDFbSKy5TaqOyJ7_Kk_YSA">
+                    <img src="../icons/ico_youtube_lightgrey.svg" alt="유튜브">
+                </a>
+            </li>
+            <li class="footer-snsitem">
+                <a class="footer-snslink" href="https://www.facebook.com/KongjuNationalUniv/javascript:void(0)">
+                    <img src="../icons/ico_facebook_lightgrey.svg" alt="페이스북">
+                </a>
+            </li>
+
+        </ul>
+        <div class="footer-bottom">
+            <div class="footer-txt">
+                <p> 충청남도 천안시 서북구 천안대로 1223-24 8공학관 8층</p>
+                <p>
+                    <span>T. 041-521-9216</span>
+                    <span>E. e-mail okok@kongju.ac.kr</span>
+                </p>
+            </div>
+            <div class="footer-txt">
+                <p>Copyrightⓒ 2020 Kongju National University. All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시물 업데이트</title>
+</head>
+<style>
+    .layout{
+        width:500px;
+        margin: 0 auto;
+        margin-top:40px;
+    }
+
+    .layout input{
+        width:100%;
+        box-sizing:border-box;
+    }
+
+    .layout textarea{
+        width:100%;
+        margin-top:10px;
+        min-height:300px;
+        }
+</style>
+<body>
+<div class="layout">
+  <form th:action="@{/board/updatepro}" method="post">
+    <button type="button" onclick="startSpeechRecognition()">음성녹음시작</button>
+    <button type="button" onclick="endSpeechRecognition()">음성녹음종료</button>
+    제목
+    <input type="text" name="title" th:value="${boardDTO.title}">
+    내용
+    <textarea name="content" th:text="${boardDTO.content}" th:value="${boardDTO.content}"></textarea>
+    보상내공
+    <input type="text" name="rewardToken" th:value="${boardDTO.rewardToken}">
+    <input type="hidden" name="id" th:value="${boardDTO.id}">
+    <button type="submit">수정</button>
+  </form>
+</div>
+<script>
+    function checkCompatibility(){
+        recognition=new(window.SpeechRecognition||window.webkitSpeechRecognition)();
+        recognition.lang="ko-KR";
+        recognition.maxAlternatives=5;
+        if(!recognition) alert("You can't use SpeechAPI.");
+    }
+
+    function startSpeechRecognition(){
+        console.log("start");
+
+        recognition.addEventListener("speechStart",()=>{
+            console.log("speech start");
+        });
+
+        recognition.addEventListener("speechEnd",()=>{
+            console.log("speechEnd");
+        });
+
+        recognition.addEventListener("result",(event)=>{
+            console.log("speechResult",event.results);
+            const text=event.result[0][0].transcript;
+            document.getElementById("name").value=text;
+        });
+
+        recognition.start();
+    }
+
+    function endSpeechRecognition(){
+        recognition.stop();
+    }
+
+    window.addEventListener("load",checkCompatibility);
+</script>
+</body>
+</html>

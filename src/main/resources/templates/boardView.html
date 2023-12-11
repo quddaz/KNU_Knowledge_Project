@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 내용</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 20px;
+    }
+
+    h1 {
+      background-color: black;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+    }
+  .answer-list {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  .answer {
+    background-color: #ECECEC;
+    padding: 10px;
+    border: 1px solid #CCC;
+    margin: 10px 0;
+  }
+
+  .answerSelected{
+    background-color: #87CEEB;
+    padding: 10px;
+    border: 1px solid #CCC;
+    margin: 10px 0;
+  }
+  .add-answer {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  .add-answer form {
+    margin-top: 10px;
+  }
+
+  .add-answer label {
+    font-weight: bold;
+  }
+
+  .add-answer input[type="text"],
+  .add-answer textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  .add-answer button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  a.button:hover {
+    background-color: black;
+  }
+    p {
+        white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+<a href="/board/list" class = "button">홈으로 가기</a>
+<h1>게시글 내용</h1>
+<div class="content">
+    <div th:if="${boardDTO.getMember().getName() == name}">
+        <a th:href="@{/board/update(id=${boardDTO.id})}" class = "button">게시글 편집</a>
+        <a th:href="@{/board/delete(id=${boardDTO.id})}" class = "button">게시글 삭제</a>
+        <a th:href="@{/board/ai(id=${boardDTO.id})}" class = "button">ai답변 받기</a>
+    </div>
+    <h2 th:text="${boardDTO.title}"></h2>
+    <p>작성자: <span th:text="${boardWriter}"></span></p>
+    <p>작성일: <span th:text="${boardDTO.updateTime}"></span></p>
+    <hr>
+    <p th:utext="${#strings.replace(boardDTO.content, '\n', '<br/>')}"></p>
+    <div th:if="${attachment != null}">
+        <!-- 이미지 파일인 경우 -->
+        <img th:if="${attachment.fileExtension == 'jpg' or attachment.fileExtension == 'jpeg' or attachment.fileExtension == 'png' or attachment.fileExtension == 'gif'}" th:src="@{/board/image(id=${boardDTO.id})}" alt="Image" />
+
+        <!-- 다른 파일인 경우 -->
+        <a th:unless="${attachment.fileExtension == 'jpg' or attachment.fileExtension == 'jpeg' or attachment.fileExtension == 'png' or attachment.fileExtension == 'gif'}" th:href="@{/board/download(id=${boardDTO.id})}" th:text="${attachment.originFilename}" />
+    </div>
+    <h2>답변 목록</h2>
+    <div class="answer-list">
+        <ul>
+            <li th:if="${gptAnswer!=null}" class="answer">
+                <p>작성자: Chat Gpt</p>
+                <p th:utext="${#strings.replace(gptAnswer.content, '\n', '<br/>')}"></p>
+            </li>
+            <li th:each="answerDTO : ${list}" th:class="${answerDTO.isCheckedSolution == T(BoardProject.demo.domain.enumSet.isCheckedSolution).ON} ? 'answerSelected' : 'answer'">
+                <div th:if="${answerDTO.getMember().getName() == name}">
+                    <a th:href="@{'/answer/update?id=' + ${answerDTO.id} + '&memberId=' + ${memberId}}" class="button">답변 편집</a>
+                    <a th:href="@{'/answer/delete?id=' + ${answerDTO.id} + '&memberId=' + ${memberId}}" class="button">답변 삭제</a>
+                </div>
+                <a th:href="@{'/answer/adoption?answerId=' + ${answerDTO.id} + '&boardId=' + ${boardDTO.id} + '&rewardToken=' + ${rewardToken}}" th:if="${boardWriter eq name}" class="button">답변 채택</a>
+                <p>작성자: <span th:text="${answerDTO.member.name}"></span></p>
+                <p th:utext="${#strings.replace(answerDTO.content, '\n', '<br/>')}"></p>
+            </li>
+        </ul>
+    </div>
+    <div th:if="${boardDTO.getMember().getName() != name}">
+    <h2>새로운 답변 추가</h2>
+    <div class="add-answer">
+        <form th:action="@{/answer/write(id=${boardDTO.id})}" method="post">
+            <p>작성자: <span th:text="${name}"></span></p>
+            <div>
+                <label for="text">내용:</label>
+                <textarea id="text" name="content" required></textarea>
+            </div>
+            <div>
+                <button type="submit">답변 추가</button>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+</body>
+</html>
