@@ -20,4 +20,5 @@
 <br>
 
 # 📝R&D
-![KakaoTalk_20231207_132010714](https://github.com/quddaz/DB_Project/assets/127312774/54d433bf-3dc7-443e-b248-3dfb4f511d9c)
+![1](https://github.com/quddaz/DB_Project/assets/127312774/ab261d13-d11b-4503-bddd-71c222522b5c)
+
