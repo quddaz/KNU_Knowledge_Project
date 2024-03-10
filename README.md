@@ -22,3 +22,4 @@
 # 📝R&D
 ![1](https://github.com/quddaz/DB_Project/assets/127312774/ab261d13-d11b-4503-bddd-71c222522b5c)
 
+https://github.com/quddaz/DB_Project/issues/3#issue-2177594443
