@@ -1,5 +1,6 @@
-## 👨‍🏫 프로젝트 소개
-공주대 지식인 서비스
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=F0E6D6&height=250&section=header&text=💡Knowledge_In&fontSize=90&fontAlign=70&fontAlignY=40&fontColor=2F4F4F&animation=fadeIn" style="width: 100%; height: auto;" />
+</p>
 
 ## ⏲️ 개발 기간 
 - 2023.10.16(월) ~ 2024.12.18(월)
