@@ -23,6 +23,9 @@
 ## 📝 ERD
 ![1](https://github.com/quddaz/DB_Project/assets/127312774/ab261d13-d11b-4503-bddd-71c222522b5c)
 
+## 🧷 구조
+
+![1](https://private-user-images.githubusercontent.com/127312774/311494344-b357c4ec-ab8c-4b92-9efc-61af2bae8c09.PNG?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjE5MzIyODUsIm5iZiI6MTcyMTkzMTk4NSwicGF0aCI6Ii8xMjczMTI3NzQvMzExNDk0MzQ0LWIzNTdjNGVjLWFiOGMtNGI5Mi05ZWZjLTYxYWYyYmFlOGMwOS5QTkc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDcyNVQxODI2MjVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT02ZWViNDdjODc0YmM2ZjA4Y2RhZDk1MTFmODJlY2I3ZmM3ZGU0OGY3OGRkN2Y4YmU2YTRhZjMyNTcwNDliM2U0JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.N9O35rZsPqZkTKKtiAy3nz3jLoUn_my7_6rKj0eZ2zk)
 
 
 ## 📌 주요 기능
@@ -51,5 +54,3 @@
 ## 🚩 배운점
 - 데이터베이스 프로젝트 였기에 발표, 기획 모두 데이터베이스 설계를 중점으로 하였습니다. 이 과정에서 스프링에서 어떻게하면 데이터베이스를 효율적으로 설계할 수 있는지 배웠고 반정규화에 대한 심도있는 고민을 하였습니다.
 - 공부를 시작하고 처음으로 진행한 스프링 프로젝트였기에 스프링에 대한 기본적인 흐름을 깨우칠 수 있는 과정이였습니다. 또한 스프링의 각종 기술에 대한 배경지식을 확장할 수 있었던 프로젝트였습니다.
-
-https://github.com/quddaz/DB_Project/issues/3#issue-2177594443
